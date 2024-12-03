@@ -41,12 +41,27 @@ func main() {
 		return
 	}
 
-	var result int32 = 0
+	var differenceresult int32 = 0
 
 	for i := 0; i < len(leftList); i++ {
 		difference := int32(math.Abs(float64(leftList[i] - rightList[i])))
-		result += difference
+		differenceresult += difference
 	}
 
-	fmt.Printf("the result is: %d\n", result)
+	fmt.Printf("the distrance result is: %d\n", differenceresult)
+
+	var similarityresult int32 = 0
+
+	for _, leftnumber := range leftList {
+		var count int32 = 0
+		for _, rightnumber := range rightList {
+			if leftnumber == rightnumber {
+				count++
+			}
+		}
+
+		similarityresult += (leftnumber * count)
+	}
+
+	fmt.Printf("the similarity result is: %d\n", similarityresult)
 }
