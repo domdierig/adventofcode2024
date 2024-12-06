@@ -24,8 +24,8 @@ func main() {
 		return
 	}
 
-	var leftList []int32
-	var rightList []int32
+	var leftList []int
+	var rightList []int
 
 	for _, numbers := range lineNumbers {
 
@@ -41,19 +41,19 @@ func main() {
 		return
 	}
 
-	var differenceresult int32 = 0
+	differenceresult := 0
 
 	for i := 0; i < len(leftList); i++ {
-		difference := int32(math.Abs(float64(leftList[i] - rightList[i])))
+		difference := int(math.Abs(float64(leftList[i] - rightList[i])))
 		differenceresult += difference
 	}
 
 	fmt.Printf("the distrance result is: %d\n", differenceresult)
 
-	var similarityresult int32 = 0
+	similarityresult := 0
 
 	for _, leftnumber := range leftList {
-		var count int32 = 0
+		count := 0
 		for _, rightnumber := range rightList {
 			if leftnumber == rightnumber {
 				count++

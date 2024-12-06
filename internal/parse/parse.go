@@ -6,13 +6,13 @@ import (
 	"strings"
 )
 
-func ParseLinesToIntArrays(lines []string) ([][]int32, error) {
-	var result [][]int32
+func ParseLinesToIntArrays(lines []string) ([][]int, error) {
+	var result [][]int
 
 	for _, line := range lines {
 		parts := strings.Fields(line)
 
-		var numbers []int32
+		var numbers []int
 
 		for _, part := range parts {
 			num, err := strconv.Atoi(part)
@@ -21,7 +21,7 @@ func ParseLinesToIntArrays(lines []string) ([][]int32, error) {
 				return nil, fmt.Errorf("could not convert '%s' in: '%s'", part, line)
 			}
 
-			numbers = append(numbers, int32(num))
+			numbers = append(numbers, int(num))
 
 		}
 
